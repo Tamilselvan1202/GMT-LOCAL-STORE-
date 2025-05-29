@@ -1,91 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GMT Local Store</title>
   <style>
     :root {
-      --primary-color: #2c3e50;
-      --accent-color: #f1c40f;
-      --light-color: #ecf0f1;
-      --dark-color: #34495e;
+      --primary-color: #004080;
+      --secondary-color: #ffcc00;
+      --accent-color: #ffffff;
+      --bg-color: #f4f4f4;
+      --text-color: #333333;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      color: var(--dark-color);
-      background: var(--light-color);
-      line-height: 1.6;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
 
     header {
-      background: var(--primary-color);
-      padding: 1em 2em;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: white;
+      background-color: var(--primary-color);
+      color: var(--accent-color);
+      padding: 1em;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
     header h1 {
-      font-size: 1.8em;
+      font-size: 2em;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      margin-top: 1em;
+    }
+
+    nav li {
+      margin: 0 1em;
     }
 
     nav a {
-      color: white;
       text-decoration: none;
-      margin-left: 1.5em;
+      color: var(--accent-color);
+      font-weight: bold;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: var(--accent-color);
-    }
-
-    .hero {
-      background: url('https://via.placeholder.com/1600x500.png?text=Welcome+to+GMT+Store') no-repeat center/cover;
-      color: white;
-      text-align: center;
-      padding: 5em 1em;
-    }
-
-    .hero h2 {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
+      color: var(--secondary-color);
     }
 
     section {
       padding: 2em;
+      margin: auto;
+      max-width: 1000px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 2em;
     }
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5em;
+    h2 {
+      color: var(--primary-color);
+      margin-bottom: 1em;
     }
 
     .product {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5em;
+    }
+
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 6px;
       overflow: hidden;
+      background-color: #fafafa;
       transition: transform 0.3s;
     }
 
-    .product:hover {
+    .product-card:hover {
       transform: translateY(-5px);
     }
 
-    .product img {
+    .product-card img {
       width: 100%;
-      height: 200px;
+      height: 180px;
       object-fit: cover;
     }
 
@@ -97,127 +107,110 @@
       margin-bottom: 0.5em;
     }
 
-    .about, .contact {
-      background: white;
-      border-radius: 8px;
-      padding: 2em;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    .product-info p {
+      margin-bottom: 0.25em;
     }
 
-    form input, form textarea {
-      width: 100%;
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
       padding: 0.75em;
-      margin-bottom: 1em;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 4px;
+      font-size: 1em;
     }
 
-    form button {
-      background: var(--primary-color);
+    .contact-form button {
+      background-color: var(--primary-color);
       color: white;
-      padding: 0.75em 1.5em;
+      padding: 0.75em;
       border: none;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
-      transition: background 0.3s;
+      font-size: 1em;
     }
 
-    form button:hover {
-      background: var(--dark-color);
+    .contact-form button:hover {
+      background-color: #003366;
     }
 
     footer {
-      background: var(--primary-color);
+      background-color: var(--primary-color);
       color: white;
       text-align: center;
       padding: 1em;
-    }
-
-    footer a {
-      color: var(--accent-color);
-      text-decoration: none;
-      margin: 0 0.5em;
-    }
-
-    @media(max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      nav {
-        margin-top: 1em;
-      }
+      margin-top: 2em;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>GMT Store</h1>
+    <h1>GMT Local Store</h1>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#products">Products</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="hero" id="home">
+  <section id="home">
     <h2>Welcome to GMT Local Store</h2>
-    <p>Your one-stop shop for everyday essentials</p>
+    <p>Your one-stop shop for daily needs, groceries, and more!</p>
   </section>
 
   <section id="products">
     <h2>Featured Products</h2>
-    <div class="products">
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200.png?text=Rice+10kg" alt="Rice" />
+    <div class="product">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x180.png?text=Rice+Bag" alt="Rice Bag">
         <div class="product-info">
-          <h3>Rice 10kg</h3>
-          <p>₹650 <span style="color: green;">(10% Off)</span></p>
+          <h3>Rice Bag (5kg)</h3>
+          <p>Price: ₹450</p>
+          <p>Discount: 10%</p>
         </div>
       </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200.png?text=Cooking+Oil" alt="Oil" />
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x180.png?text=Soap+Pack" alt="Soap Pack">
         <div class="product-info">
-          <h3>Cooking Oil 1L</h3>
-          <p>₹120 <span style="color: green;">(5% Off)</span></p>
+          <h3>Soap Pack (4 pcs)</h3>
+          <p>Price: ₹120</p>
+          <p>Discount: 5%</p>
         </div>
       </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200.png?text=Soap+Pack" alt="Soap" />
-        <div class="product-info">
-          <h3>Bath Soap (Pack of 3)</h3>
-          <p>₹99</p>
-        </div>
-      </div>
+      <!-- Add more products similarly -->
     </div>
   </section>
 
-  <section class="about" id="about">
+  <section id="about">
     <h2>About Us</h2>
-    <p>GMT Store was founded in 2010 with a mission to provide affordable, high-quality essentials to the local community. Our values are rooted in customer satisfaction, trust, and convenience. We strive to bring the best products to your doorstep with friendly service.</p>
+    <p>Established in 2005, GMT Local Store has been serving the Chennai community with top-quality products at affordable prices. Our mission is to ensure customer satisfaction through excellence in service and convenience. From groceries to personal care, we’ve got it all!</p>
   </section>
 
-  <section class="contact" id="contact">
+  <section id="contact">
     <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="4" placeholder="Your Message" required></textarea>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message"></textarea>
       <button type="submit">Send Message</button>
     </form>
-    <p><strong>Location:</strong> Chennai, Tamil Nadu</p>
-    <p><strong>Phone:</strong> +91 94426XXXXX</p>
+    <p>📍 Location: Chennai, Tamil Nadu, India</p>
+    <p>📞 Phone: +91 944264****</p>
+    <p>📸 Instagram: @GMTSTORE</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 GMT Local Store</p>
-    <p>
-      <a href="#">Instagram</a> |
-      <a href="#">Facebook</a> |
-      <a href="#">WhatsApp</a>
-    </p>
+    <p>&copy; 2025 GMT Local Store. All rights reserved.</p>
   </footer>
+
 </body>
 </html>

@@ -1,69 +1,179 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>GMT Local Store</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GTM Local Store</title>
   <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background-color: #f9f9f9;
+    * {
+      box-sizing: border-box;
     }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://via.placeholder.com/1600x1000.png?text=GTM+Local+Store+Background');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+    }
+
     header {
-      background-color: darkgreen;
-      color: white;
-      padding: 20px;
+      background-color: rgba(44, 62, 80, 0.9);
+      padding: 1.5em 0;
       text-align: center;
     }
-    section {
-      padding: 20px;
+
+    header h1 {
+      margin: 0;
     }
-    .service {
-      background: white;
-      margin: 10px 0;
-      padding: 10px;
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      margin-top: 1em;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5em 1em;
       border-radius: 5px;
     }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    section {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2em 1em;
+      margin: 1.5em auto;
+      max-width: 900px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #f1c40f;
+      margin-bottom: 0.5em;
+    }
+
+    ul {
+      padding-left: 1.5em;
+    }
+
+    button {
+      margin: 0.5em;
+      padding: 0.75em 1.25em;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1e874b;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 8px;
+    }
+
     footer {
-      background-color: #222;
-      color: #ddd;
+      background-color: rgba(44, 62, 80, 0.9);
+      color: white;
       text-align: center;
-      padding: 15px;
-      font-size: 14px;
+      padding: 1em;
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
-    <h1>GMT Local Store</h1>
-    <p>Chennai's Trusted Store for Local Essentials</p>
+    <h1>GTM Local Store</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">🏠 Home</a></li>
+        <li><a href="#products">🛒 Products</a></li>
+        <li><a href="#services">📦 Services</a></li>
+        <li><a href="#contact">📞 Contact</a></li>
+        <li><a href="#location">📍 Location</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section>
+  <!-- Home Section -->
+  <section id="home">
     <h2>About Us</h2>
-    <p>We provide quality local products including groceries, kitchen items, personal care, and home needs — all from trusted vendors in Chennai.</p>
+    <p>Welcome to GTM Local Store – your neighborhood destination for all daily essentials and more!</p>
+    <h3>Why Choose Us?</h3>
+    <ul>
+      <li>🛒 All Daily Essentials</li>
+      <li>🏡 Free Home Delivery</li>
+      <li>🧃 Fresh & Quality Products</li>
+      <li>💰 Best Price Guarantee</li>
+      <li>💳 UPI / Card Payment Available</li>
+    </ul>
   </section>
 
-  <section>
-    <h2>Our Products</h2>
-    <div class="service">🥦 Fresh Vegetables & Fruits</div>
-    <div class="service">🥛 Dairy & Bakery</div>
-    <div class="service">🧴 Personal Care Items</div>
-    <div class="service">🍚 Rice, Pulses & Spices</div>
-    <div class="service">🏠 Home Essentials</div>
+  <!-- Products Section -->
+  <section id="products">
+    <h2>✅ Products Available</h2>
+    <ul>
+      <li>Groceries (Rice, Dals, Oil, Spices)</li>
+      <li>Snacks & Biscuits</li>
+      <li>Beverages (Juice, Tea, Coffee)</li>
+      <li>Cleaning Products</li>
+      <li>Personal Care (Soap, Shampoo, etc.)</li>
+      <li>Stationery Items</li>
+    </ul>
   </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>📞 +91-XXXXXXXXXX<br>
-       📍 Chennai<br>
-       📸 Instagram: @gmtlocalstore
-    </p>
+  <!-- Services Section -->
+  <section id="services">
+    <h2>📦 Additional Services</h2>
+    <ul>
+      <li>Home Delivery (via phone or WhatsApp)</li>
+      <li>Festival Special Kits</li>
+      <li>Subscription Packs for Monthly Groceries</li>
+    </ul>
   </section>
 
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>📞 Contact Us</h2>
+    <button onclick="window.location.href='https://wa.me/YOUR_WHATSAPP_NUMBER'">✅ Order via WhatsApp</button>
+    <button onclick="window.location.href='tel:YOUR_PHONE_NUMBER'">✅ Call Now</button>
+    <button onclick="window.location.href='https://instagram.com/YOUR_INSTAGRAM_HANDLE'">✅ Instagram Page</button>
+    <button onclick="window.location.href='https://line.me/R/ti/p/YOUR_LINE_ID'">✅ Contact via LINE</button>
+    <button onclick="window.location.href='#location'">✅ View Location</button>
+  </section>
+
+  <!-- Location Map Section -->
+  <section id="location">
+    <h2>📍 Find Us</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=YOUR_MAP_EMBED_LINK"
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    © 2025 GMT Local Store. Made with ❤️ in GMT BRAINFLUX TEAM.
+    <p>&copy; 2025 GTM Local Store. All rights reserved.</p>
   </footer>
 
 </body>

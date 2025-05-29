@@ -29,6 +29,12 @@
       margin: 0;
     }
 
+    #greeting {
+      margin-top: 0.5em;
+      font-size: 1em;
+      color: #f1c40f;
+    }
+
     nav ul {
       list-style: none;
       padding: 0;
@@ -96,6 +102,20 @@
       text-align: center;
       padding: 1em;
     }
+
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -103,6 +123,7 @@
   <!-- Header -->
   <header>
     <h1>GTM Local Store</h1>
+    <div id="greeting">Welcome!</div>
     <nav>
       <ul>
         <li><a href="#home">🏠 Home</a></li>
@@ -154,10 +175,10 @@
   <!-- Contact Section -->
   <section id="contact">
     <h2>📞 Contact Us</h2>
-    <button onclick="window.location.href='https://wa.me/YOUR_WHATSAPP_NUMBER'">✅ Order via WhatsApp</button>
-    <button onclick="window.location.href='tel:YOUR_PHONE_NUMBER'">✅ Call Now</button>
-    <button onclick="window.location.href='https://instagram.com/YOUR_INSTAGRAM_HANDLE'">✅ Instagram Page</button>
-    <button onclick="window.location.href='https://line.me/R/ti/p/YOUR_LINE_ID'">✅ Contact via LINE</button>
+    <button onclick="confirmAction('https://wa.me/YOUR_WHATSAPP_NUMBER')">✅ Order via WhatsApp</button>
+    <button onclick="confirmAction('tel:YOUR_PHONE_NUMBER')">✅ Call Now</button>
+    <button onclick="confirmAction('https://instagram.com/YOUR_INSTAGRAM_HANDLE')">✅ Instagram Page</button>
+    <button onclick="confirmAction('https://line.me/R/ti/p/YOUR_LINE_ID')">✅ Contact via LINE</button>
     <button onclick="window.location.href='#location'">✅ View Location</button>
   </section>
 
@@ -175,6 +196,47 @@
   <footer>
     <p>&copy; 2025 GTM Local Store. All rights reserved.</p>
   </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="backToTop" onclick="scrollToTop()">⬆️</button>
+
+  <!-- JavaScript Section -->
+  <script>
+    // Dynamic Greeting Message
+    const greetingElement = document.getElementById('greeting');
+    const hour = new Date().getHours();
+    let greeting = "Welcome!";
+    if (hour < 12) {
+      greeting = "🌅 Good Morning!";
+    } else if (hour < 18) {
+      greeting = "☀️ Good Afternoon!";
+    } else {
+      greeting = "🌙 Good Evening!";
+    }
+    greetingElement.innerText = greeting;
+
+    // Confirm before redirecting
+    function confirmAction(url) {
+      if (confirm("Are you sure you want to open this link?")) {
+        window.location.href = url;
+      }
+    }
+
+    // Show/hide Back to Top button
+    const backToTopButton = document.getElementById("backToTop");
+
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTopButton.style.display = "block";
+      } else {
+        backToTopButton.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>

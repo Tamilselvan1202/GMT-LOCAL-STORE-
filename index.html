@@ -1,197 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GTM Local Store</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GTM Local Store</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-image: url('https://via.placeholder.com/1600x1000.png?text=GTM+Local+Store+Background');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: white;
-    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://via.placeholder.com/1600x1000.png?text=GTM+Local+Store+Background');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
 
-    header, footer {
-      background-color: rgba(44, 62, 80, 0.9);
-      padding: 1em;
-      text-align: center;
-    }
+    header, footer {
+      background-color: rgba(44, 62, 80, 0.9);
+      padding: 1em;
+      text-align: center;
+    }
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 1em;
-      flex-wrap: wrap;
-      margin: 1em 0 0;
-    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      flex-wrap: wrap;
+      margin: 1em 0 0;
+    }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.5em 1em;
-      border-radius: 5px;
-    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+    }
 
-    nav a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
 
-    section {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 2em;
-      margin: 1em auto;
-      border-radius: 10px;
-      max-width: 900px;
-    }
+    section {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2em;
+      margin: 1em auto;
+      border-radius: 10px;
+      max-width: 900px;
+    }
 
-    h2 {
-      color: #f1c40f;
-    }
+    h2 {
+      color: #f1c40f;
+    }
 
-    button {
-      margin: 0.5em;
-      padding: 0.75em 1.25em;
-      background-color: #27ae60;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1em;
-      cursor: pointer;
-    }
+    button {
+      margin: 0.5em;
+      padding: 0.75em 1.25em;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
 
-    button:hover {
-      background-color: #1e874b;
-    }
+    button:hover {
+      background-color: #1e874b;
+    }
 
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      border-radius: 8px;
-    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 8px;
+    }
 
-    #searchBar {
-      width: 100%;
-      padding: 10px;
-      margin: 1em 0;
-      border-radius: 5px;
-      border: none;
-      font-size: 1em;
-    }
+    #searchBar {
+      width: 100%;
+      padding: 10px;
+      margin: 1em 0;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+    }
 
-    .category-filter {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 1em;
-    }
+    .category-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1em;
+    }
 
-    .category-filter button {
-      background-color: #2980b9;
-    }
-  </style>
+    .category-filter button {
+      background-color: #2980b9;
+    }
+
+    .stars {
+      font-size: 2em;
+      color: gray;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .stars span:hover,
+    .stars span.hovered,
+    .stars span.selected {
+      color: gold;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>GTM Local Store</h1>
-    <nav>
-      <ul>
-        <li><a href="#home">🏠 Home</a></li>
-        <li><a href="#products">🛒 Products</a></li>
-        <li><a href="#services">📦 Services</a></li>
-        <li><a href="#contact">📞 Contact</a></li>
-        <li><a href="#location">📍 Location</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header>
+    <h1>GTM Local Store</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">🏠 Home</a></li>
+        <li><a href="#products">🛒 Products</a></li>
+        <li><a href="#services">📦 Services</a></li>
+        <li><a href="#contact">📞 Contact</a></li>
+        <li><a href="#location">📍 Location</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section id="home">
-    <h2>Welcome to the GTM Online Store</h2>
-    <p>🛍️ Order Now, 📞 Call Now, 📸 Follow us on Instagram!</p>
-    <p>Serving 🗺️ All Locations in Chennai!</p>
-  </section>
+  <section id="home">
+    <h2>Welcome to the GTM Online Store</h2>
+    <button onclick="window.location.href='https://wa.me/91944264XXXX'">🛍️ Order Now</button>
+    <button onclick="window.location.href='tel:+91944264XXXX'">📞 Call Now</button>
+    <button onclick="window.location.href='https://instagram.com/gmt_store'">📸 Follow us on Instagram</button>
+    <p>Serving 🗺️ All Locations in Chennai!</p>
+  </section>
 
-  <section id="products">
-    <h2>🛍️ Our Products</h2>
-    <input type="text" id="searchBar" placeholder="🔍 Search products..." onkeyup="searchProducts()" />
-    <div class="category-filter">
-      <button onclick="filterCategory('all')">All</button>
-      <button onclick="filterCategory('groceries')">Groceries</button>
-      <button onclick="filterCategory('snacks')">Snacks</button>
-      <button onclick="filterCategory('beverages')">Beverages</button>
-    </div>
-    <ul id="productList">
-      <li class="product groceries">Rice🌾 - ₹50/kg (10% Off)</li>
-      <li class="product snacks">Biscuits🍪 - ₹20 (5% Off)</li>
-      <li class="product beverages">Juice🍹 - ₹30 (No Discount)</li>
-      <li class="product groceries">Dal🍱 - ₹60/kg (15% Off)</li>
-      <li class="product groceries">Snacks🍟 - ₹70/kg (10% Off)</li>
-      <li class="product groceries">Milk🥛 - ₹10/kg (15% Off)</li>
-      <li class="product groceries">Swees 🍩 - ₹100/kg (5% Off)</li>
-      <li class="product groceries">Coconut 🥥 - ₹60/kg (15% Off)</li>
-      <li class="product groceries">All Fruits🍇🍑🍓🍉- ₹500/kg (15% Off)</li>
-      <li class="product groceries">Suger🧁 - ₹30/kg (15% Off)</li>
-    </ul>
-  </section>
+  <section id="products">
+    <h2>🛍️ Our Products</h2>
+    <input type="text" id="searchBar" placeholder="🔍 Search products..." onkeyup="searchProducts()" />
+    <div class="category-filter">
+      <button onclick="filterCategory('all')">All</button>
+      <button onclick="filterCategory('groceries')">Groceries</button>
+      <button onclick="filterCategory('snacks')">Snacks</button>
+      <button onclick="filterCategory('beverages')">Beverages</button>
+    </div>
+    <ul id="productList">
+      <li class="product groceries">Rice🌾 - ₹50/kg (10% Off)</li>
+      
+      <li class="product snacks">Biscuits🍪 - ₹20 (5% Off)</li>
+      
+      <li class="product beverages">Juice🍹 - ₹30 (No Discount)</li>
+      
+      <li class="product groceries">Dal🍱 - ₹60/kg (15% Off)</li>
+      
+      <li class="product groceries">Snacks🍟 - ₹70/kg (10% Off)</li>
+      
+      <li class="product groceries">Milk🥛 - ₹10/kg (15% Off)</li>
+      
+      <li class="product groceries">Swees 🍩 - ₹100/kg (5% Off)</li>
+      
+      <li class="product groceries">Coconut 🥥 - ₹60/kg (15% Off)</li>
+      
+      <li class="product groceries">All Fruits🍇🍑🍓🍉- ₹500/kg (15% Off)</li>
+      
+      <li class="product groceries">Suger🧁 - ₹30/kg (15% Off)</li>
+    </ul>
+  </section>
 
-  <section id="services">
-    <h2>📦 Our Services</h2>
-    <ul>
-      <li>✅ Home Delivery via WhatsApp</li>
-      <li>✅ Festival Special Kits</li>
-      <li>✅ Monthly Subscription Packs</li>
-    </ul>
-  </section>
+  <section id="services">
+    <h2>📦 Our Services</h2>
+    <ul>
+      <li>✅ Home Delivery via WhatsApp</li>
+      <li>✅ Festival Special Kits</li>
+      <li>✅ Monthly Subscription Packs</li>
+    </ul>
+  </section>
 
-  <section id="contact">
-    <h2>📞 Contact Us</h2>
-    <button onclick="window.location.href='tel:+91944264XXXX'">Call Now</button>
-    <button onclick="window.location.href='https://wa.me/91944264XXXX'">Order via WhatsApp</button>
-    <button onclick="window.location.href='https://instagram.com/gmt_store'">Instagram</button>
-    <button onclick="alert('📢 Offer: Get 5% off on orders above ₹500!')">🎁 View Offers</button>
-  </section>
+  <section id="contact">
+    <h2>📞 Contact Us</h2>
+    <button onclick="window.location.href='tel:+91944264XXXX'">Call Now</button>
+    <button onclick="window.location.href='https://wa.me/91944264XXXX'">Order via WhatsApp</button>
+    <button onclick="window.location.href='https://instagram.com/gmt_store'">Instagram</button>
+    <button onclick="alert('📢 Offer: Get 5% off on orders above ₹500!')">🎁 View Offers</button>
+  </section>
 
-  <section id="location">
-    <h2>📍 Our Location</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18...YOURMAPLINK..." allowfullscreen></iframe>
-  </section>
+  <section id="location">
+    <h2>📍 Our Location</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18...YOURMAPLINK..." allowfullscreen></iframe>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 GTM Local Store 🏬| Designed by GMT BRAINFLUX TEAM🧠</p>
-  </footer>
+  <section id="rating">
+    <h2>⭐ Rate Our Store</h2>
+    <p>We value your feedback! Please rate your experience:</p>
+    <div class="stars" onclick="rateStar(event)">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+    <p id="ratingText"></p>
+    <textarea id="feedback" rows="4" placeholder="📝 Write your feedback here..." style="width: 100%; margin-top: 1em; padding: 10px; border-radius: 5px;"></textarea><br />
+    <button onclick="submitFeedback()">✅ Submit Feedback</button>
+  </section>
 
-  <script>
-    function searchProducts() {
-      const input = document.getElementById('searchBar').value.toLowerCase();
-      const items = document.querySelectorAll('.product');
-      items.forEach(item => {
-        item.style.display = item.textContent.toLowerCase().includes(input) ? '' : 'none';
-      });
-    }
+  <footer>
+    <p>&copy; 2025 GTM Local Store 🏬| Designed by GMT BRAINFLUX TEAM🧠</p>
+  </footer>
 
-    function filterCategory(category) {
-      const items = document.querySelectorAll('.product');
-      items.forEach(item => {
-        if (category === 'all') {
-          item.style.display = '';
-        } else {
-          item.style.display = item.classList.contains(category) ? '' : 'none';
-        }
-      });
-    }
-  </script>
+  <script>
+    function searchProducts() {
+      const input = document.getElementById('searchBar').value.toLowerCase();
+      const items = document.querySelectorAll('.product');
+      items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(input) ? '' : 'none';
+      });
+    }
+
+    function filterCategory(category) {
+      const items = document.querySelectorAll('.product');
+      items.forEach(item => {
+        if (category === 'all') {
+          item.style.display = '';
+        } else {
+          item.style.display = item.classList.contains(category) ? '' : 'none';
+        }
+      });
+    }
+
+    let selectedRating = 0;
+    function rateStar(event) {
+      const stars = document.querySelectorAll('.stars span');
+      stars.forEach(star => star.classList.remove('selected'));
+      const clickedStar = event.target;
+      selectedRating = parseInt(clickedStar.dataset.value);
+      for (let i = 0; i < selectedRating; i++) {
+        stars[i].classList.add('selected');
+      }
+      document.getElementById('ratingText').textContent = `⭐ You rated us ${selectedRating} out of 5`;
+    }
+
+    function submitFeedback() {
+      const feedback = document.getElementById('feedback').value;
+      if (selectedRating === 0) {
+        alert("📢 Please select a star rating before submitting.");
+        return;
+      }
+      if (feedback.trim() === "") {
+        alert("✏️ Please enter some feedback before submitting.");
+        return;
+      }
+      alert(`✅ Thank you! Your ${selectedRating}-star rating and feedback has been recorded.`);
+      document.getElementById('feedback').value = '';
+      document.getElementById('ratingText').textContent = '';
+      const stars = document.querySelectorAll('.stars span');
+      stars.forEach(star => star.classList.remove('selected'));
+      selectedRating = 0;
+    }
+  </script>
 </body>
 </html>
